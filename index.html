@@ -108,6 +108,57 @@ transition:.2s;
 transform:scale(1.1);
 background:#ffe6e6;
 }
+     .accionesComentario{
+
+margin-top:12px;
+
+}
+
+.accionesComentario button{
+
+background:#eaf7ff;
+
+border:none;
+
+padding:8px 14px;
+
+border-radius:20px;
+
+cursor:pointer;
+
+}
+
+.respuestaBox{
+
+margin-top:12px;
+
+padding-left:25px;
+
+}
+
+.respuestaBox input{
+
+width:100%;
+
+margin-bottom:8px;
+
+}
+
+.respuesta{
+
+margin-top:12px;
+
+margin-left:35px;
+
+padding:12px;
+
+border-left:3px solid #9fd7f3;
+
+background:#f9fcff;
+
+border-radius:12px;
+
+}
 </style>
 </head>
 
@@ -359,8 +410,7 @@ div.innerHTML = `
 <div style="
 font-size:12px;
 color:#7a8c9c;
-margin-top:3px;
-margin-bottom:10px;
+margin:5px 0 10px;
 ">
 
 🕒 ${tiempoTranscurrido(data.fecha)}
@@ -370,8 +420,33 @@ margin-bottom:10px;
 <p class="estado">${data.estado}</p>
 
 <p>${data.texto}</p>
-`;
 
+<div class="accionesComentario">
+
+<button onclick="mostrarRespuesta('${doc.id}')">
+
+💬 Responder
+
+</button>
+
+</div>
+
+<div id="respuesta-${doc.id}" class="respuestaBox" style="display:none;">
+
+<input
+id="input-${doc.id}"
+placeholder="Escribe una respuesta...">
+
+<button onclick="enviarRespuesta('${doc.id}')">
+
+Enviar
+
+</button>
+
+</div>
+
+<div id="lista-${doc.id}"></div>
+`;
 <div class="acciones">
 <button onclick="likeComentario('${doc.id}', ${data.likes || 0})">
 ❤️ ${data.likes || 0}
