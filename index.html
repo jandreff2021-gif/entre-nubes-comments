@@ -89,7 +89,25 @@ box-shadow:0 5px 15px rgba(0,0,0,.08);
 .estado{
 font-size:22px;
 }
+.acciones{
+margin-top:10px;
+}
 
+.acciones button{
+border:none;
+background:#fff;
+padding:6px 12px;
+border-radius:20px;
+cursor:pointer;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+font-size:14px;
+transition:.2s;
+}
+
+.acciones button:hover{
+transform:scale(1.1);
+background:#ffe6e6;
+}
 </style>
 </head>
 
@@ -235,7 +253,18 @@ enviarComentarioFirebase(nombre, texto, estado);
 ===================================== -->
 
 <script type="module">
+import { doc, updateDoc, increment } 
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+window.likeComentario = async function(id, likesActuales){
+
+const ref = doc(db, "comentarios", id);
+
+await updateDoc(ref, {
+likes: increment(1)
+});
+
+};
 // Importar Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } 
