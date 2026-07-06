@@ -355,8 +355,22 @@ div.className = "comentario";
 
 div.innerHTML = `
 <b>☁ ${data.nombre}</b>
+
+<div style="
+font-size:12px;
+color:#7a8c9c;
+margin-top:3px;
+margin-bottom:10px;
+">
+
+🕒 ${tiempoTranscurrido(data.fecha)}
+
+</div>
+
 <p class="estado">${data.estado}</p>
+
 <p>${data.texto}</p>
+`;
 
 <div class="acciones">
 <button onclick="likeComentario('${doc.id}', ${data.likes || 0})">
