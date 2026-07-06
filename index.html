@@ -296,7 +296,7 @@ await addDoc(comentariosRef, {
 nombre: nombre || "Anónimo",
 texto: texto,
 estado: estado,
-fecha: new Date()
+fecha: Date.now()
 });
 
 } catch (error) {
