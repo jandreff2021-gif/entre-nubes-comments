@@ -1,628 +1,871 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Entre Nubes - Buzón</title>
+
+<title>Entre Nubes | Buzón de Pensamientos</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/*=================================================
+        ENTRE NUBES
+        VERSIÓN 2.0
+=================================================*/
+
+*{
+
+margin:0;
+
+padding:0;
+
+box-sizing:border-box;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
 body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-background:#eaf6ff;
+
+background:linear-gradient(180deg,#eaf7ff,#f8fcff);
+
+font-family:'Poppins',sans-serif;
+
+padding:40px 15px;
+
+color:#456172;
+
 }
 
-header{
-text-align:center;
-padding:30px 10px;
-background:linear-gradient(180deg,#7ec8f3,#cfefff);
-color:#2f4f66;
-}
-
-header h1{
-margin:0;
-font-size:32px;
-}
+/*==================================
+            CONTENEDOR
+==================================*/
 
 .container{
-max-width:800px;
+
+max-width:900px;
+
 margin:auto;
-padding:20px;
+
 }
 
-/* CUADERNO */
-.notebook{
-background:white;
-border-radius:20px;
-padding:25px;
-box-shadow:0 10px 25px rgba(0,0,0,.12);
-background-image: linear-gradient(#d7ecff 1px, transparent 1px);
-background-size:100% 34px;
+/*==================================
+              CABECERA
+==================================*/
+
+.header{
+
+background:linear-gradient(180deg,#7ccdf2,#b8e6fa,#eefbff);
+
+border-radius:30px;
+
+padding:45px;
+
+text-align:center;
+
+box-shadow:0 15px 35px rgba(0,0,0,.12);
+
 position:relative;
+
+overflow:hidden;
+
+margin-bottom:35px;
+
 }
+
+/*==================================
+             NUBES
+==================================*/
+
+.cloud{
+
+position:absolute;
+
+background:white;
+
+border-radius:100px;
+
+opacity:.75;
+
+}
+
+.cloud::before,
+.cloud::after{
+
+content:"";
+
+position:absolute;
+
+background:white;
+
+border-radius:50%;
+
+}
+
+.cloud1{
+
+width:170px;
+
+height:55px;
+
+top:40px;
+
+left:-70px;
+
+animation:cloudMove 40s linear infinite;
+
+}
+
+.cloud1::before{
+
+width:60px;
+
+height:60px;
+
+left:20px;
+
+top:-22px;
+
+}
+
+.cloud1::after{
+
+width:80px;
+
+height:80px;
+
+right:15px;
+
+top:-32px;
+
+}
+
+.cloud2{
+
+width:210px;
+
+height:60px;
+
+top:150px;
+
+right:-90px;
+
+animation:cloudMove2 55s linear infinite;
+
+}
+
+.cloud2::before{
+
+width:70px;
+
+height:70px;
+
+left:18px;
+
+top:-28px;
+
+}
+
+.cloud2::after{
+
+width:90px;
+
+height:90px;
+
+right:18px;
+
+top:-38px;
+
+}
+
+/*==================================
+             TITULO
+==================================*/
+
+.header h1{
+
+font-size:65px;
+
+font-weight:700;
+
+letter-spacing:4px;
+
+color:#35556b;
+
+position:relative;
+
+z-index:2;
+
+}
+
+.header p{
+
+margin-top:12px;
+
+font-size:19px;
+
+font-family:'Patrick Hand',cursive;
+
+color:#5f7b8c;
+
+position:relative;
+
+z-index:2;
+
+}
+
+/*==================================
+          ANIMACIONES
+==================================*/
+
+@keyframes cloudMove{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+100%{
+
+transform:translateX(1050px);
+
+}
+
+}
+
+@keyframes cloudMove2{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+100%{
+
+transform:translateX(-1050px);
+
+}
+
+}
+
+/*==================================
+      RESPONSIVE
+==================================*/
+
+@media(max-width:700px){
+
+.header{
+
+padding:30px 20px;
+
+}
+
+.header h1{
+
+font-size:42px;
+
+}
+
+.header p{
+
+font-size:17px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div class="cloud cloud1"></div>
+
+<div class="cloud cloud2"></div>
+
+<h1>☁ Entre Nubes</h1>
+
+<p>
+
+Un lugar donde los pensamientos también dejan huella.
+
+</p>
+
+</div>
+<!--=================================================
+            CUADERNO DE PENSAMIENTOS
+==================================================-->
+
+<style>
+
+.notebook{
+
+background:#fffefa;
+
+border-radius:28px;
+
+padding:35px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.10);
+
+position:relative;
+
+overflow:hidden;
+
+margin-bottom:35px;
+
+}
+
+/* Línea roja del cuaderno */
 
 .notebook::before{
+
 content:"";
+
 position:absolute;
-left:40px;
+
+left:60px;
+
 top:0;
+
 bottom:0;
+
 width:3px;
-background:#ff8f8f;
+
+background:#ff9e9e;
+
+opacity:.8;
+
 }
 
-/* INPUTS */
-input, textarea{
+/* Líneas azules */
+
+.notebook::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+top:0;
+
+right:0;
+
+bottom:0;
+
+background:repeating-linear-gradient(
+
+transparent,
+
+transparent 33px,
+
+#d7ecff 34px
+
+);
+
+pointer-events:none;
+
+}
+
+.notebookContent{
+
+position:relative;
+
+z-index:2;
+
+padding-left:55px;
+
+}
+
+.notebook h2{
+
+font-size:32px;
+
+color:#3c5d74;
+
+margin-bottom:8px;
+
+font-family:'Patrick Hand',cursive;
+
+}
+
+.notebook p{
+
+color:#688091;
+
+line-height:1.8;
+
+margin-bottom:25px;
+
+}
+
+/*==================================
+          FORMULARIO
+==================================*/
+
+.formGroup{
+
+margin-bottom:18px;
+
+}
+
+.formGroup label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-weight:600;
+
+color:#456172;
+
+}
+
+.formGroup input,
+
+.formGroup textarea{
+
 width:100%;
-padding:12px;
-margin-top:10px;
-border-radius:12px;
-border:1px solid #cde6ff;
+
+border:none;
+
+border-radius:16px;
+
+padding:14px 16px;
+
+font-size:15px;
+
+font-family:'Poppins',sans-serif;
+
+background:#f6fbff;
+
+box-shadow:inset 0 0 0 2px #dceef9;
+
 outline:none;
+
+transition:.3s;
+
 }
 
-textarea{
-height:120px;
+.formGroup input:focus,
+
+.formGroup textarea:focus{
+
+box-shadow:inset 0 0 0 2px #8fd2f2;
+
+background:white;
+
+}
+
+.formGroup textarea{
+
 resize:none;
+
+min-height:140px;
+
 }
 
-button{
-margin-top:15px;
-width:100%;
-padding:12px;
-border:none;
-border-radius:12px;
-background:#69bde8;
-color:white;
-font-weight:bold;
-cursor:pointer;
-}
+/*==================================
+          ESTADOS
+==================================*/
 
-.comentario{
-background:#fff;
-margin-top:15px;
-padding:15px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
+.estadoSelector{
 
-.estado{
-font-size:22px;
-}
-.acciones{
+display:flex;
+
+gap:10px;
+
+flex-wrap:wrap;
+
 margin-top:10px;
-}
-
-.acciones button{
-border:none;
-background:#fff;
-padding:6px 12px;
-border-radius:20px;
-cursor:pointer;
-box-shadow:0 4px 10px rgba(0,0,0,.1);
-font-size:14px;
-transition:.2s;
-}
-
-.acciones button:hover{
-transform:scale(1.1);
-background:#ffe6e6;
-}
-     .accionesComentario{
-
-margin-top:12px;
 
 }
 
-.accionesComentario button{
+.estadoBtn{
 
-background:#eaf7ff;
+width:48px;
+
+height:48px;
+
+border-radius:50%;
 
 border:none;
 
-padding:8px 14px;
-
-border-radius:20px;
+font-size:22px;
 
 cursor:pointer;
 
+background:white;
+
+box-shadow:0 4px 10px rgba(0,0,0,.08);
+
+transition:.25s;
+
 }
 
-.respuestaBox{
+.estadoBtn:hover{
 
-margin-top:12px;
+transform:scale(1.15);
+
+}
+
+.estadoActivo{
+
+background:#bfe8ff !important;
+
+}
+
+/*==================================
+            BOTÓN
+==================================*/
+
+.publicar{
+
+margin-top:15px;
+
+border:none;
+
+background:#77ccef;
+
+color:white;
+
+font-size:16px;
+
+padding:15px 28px;
+
+border-radius:30px;
+
+cursor:pointer;
+
+font-weight:600;
+
+transition:.3s;
+
+box-shadow:0 10px 20px rgba(68,177,230,.35);
+
+}
+
+.publicar:hover{
+
+transform:translateY(-3px);
+
+background:#63bde3;
+
+}
+
+@media(max-width:700px){
+
+.notebook{
+
+padding:22px;
+
+}
+
+.notebookContent{
 
 padding-left:25px;
 
 }
 
-.respuestaBox input{
+.notebook::before{
 
-width:100%;
-
-margin-bottom:8px;
+left:28px;
 
 }
 
-.respuesta{
-
-margin-top:12px;
-
-margin-left:35px;
-
-padding:12px;
-
-border-left:3px solid #9fd7f3;
-
-background:#f9fcff;
-
-border-radius:12px;
-
 }
+
 </style>
-</head>
-
-<body>
-
-<header>
-<h1>☁ Entre Nubes</h1>
-<p>Buzón de pensamientos sobre historias</p>
-</header>
-
-<div class="container">
 
 <div class="notebook">
 
-<h2>Deja tu pensamiento</h2>
+<div class="notebookContent">
 
-<input id="nombre" placeholder="Tu nombre (opcional)">
-<br><br>
+<h2>
 
-<div>
-<p>Estado:</p>
-<span class="estado">😊</span>
-<span class="estado">🤔</span>
-<span class="estado">🥹</span>
-<span class="estado">🌧️</span>
-</div>
+📝 Buzón de Pensamientos
 
-<br>
+</h2>
 
-<textarea id="texto" placeholder="Escribe tu opinión..."></textarea>
+<p>
 
-<button onclick="enviar()">Publicar</button>
+Si alguna historia te hizo sentir algo, puedes dejar aquí un pequeño pensamiento.
 
-</div>
+</p>
 
-<!-- AQUI VAN LOS COMENTARIOS -->
-<div id="lista"></div>
+<div class="formGroup">
 
-</div>
+<label>
 
-<script>
-let estado = "😊";
+Nombre
 
-document.querySelectorAll(".estado").forEach(e=>{
-e.onclick = ()=>{
-estado = e.innerText;
-}
-});
-
-function enviar(){
-
-let nombre = document.getElementById("nombre").value;
-let texto = document.getElementById("texto").value;
-
-if(texto.trim()==="") return;
-
-let div = document.createElement("div");
-div.className="comentario";
-
-div.innerHTML=`
-<b>${nombre || "Anónimo"}</b>
-<p>${estado}</p>
-<p>${texto}</p>
-`;
-
-document.getElementById("lista").prepend(div);
-
-document.getElementById("texto").value="";
-}
-
-</script>
-
-</body>
-</html>
-<script>
-// =====================================
-// ENTRE NUBES - PARTE 2
-// Preparado para Firebase
-// =====================================
-
-// Estado seleccionado
-let estado = "😊";
-
-// Selección de estados
-document.querySelectorAll(".estado").forEach(e=>{
-e.addEventListener("click", ()=>{
-estado = e.innerText;
-
-// efecto visual
-document.querySelectorAll(".estado").forEach(x=>{
-x.style.transform="scale(1)";
-});
-
-e.style.transform="scale(1.3)";
-});
-});
-
-// FUNCION PARA FUTURO FIREBASE
-function enviarComentarioFirebase(nombre, texto, estadoSeleccionado){
-
-// AQUÍ luego conectaremos Firebase
-console.log("Preparado para enviar a Firebase:", {
-nombre,
-texto,
-estadoSeleccionado
-});
-
-}
-
-// BOTÓN PUBLICAR
-function enviar(){
-
-let nombre = document.getElementById("nombre").value;
-let texto = document.getElementById("texto").value;
-
-if(texto.trim()===""){
-alert("Escribe un pensamiento primero ☁️");
-return;
-}
-
-// mostrar en pantalla (temporal)
-let div = document.createElement("div");
-div.className="comentario";
-
-div.innerHTML=`
-<b>${nombre || "Anónimo"}</b>
-<p class="estado">${estado}</p>
-<p>${texto}</p>
-`;
-
-document.getElementById("lista").prepend(div);
-
-// limpiar
-document.getElementById("texto").value="";
-
-// enviar preparado a firebase (aún no conectado)
-enviarComentarioFirebase(nombre, texto, estado);
-
-}
-</script>
-<!-- =====================================
-     ENTRE NUBES - FIREBASE PARTE 3
-===================================== -->
-
-<script type="module">
-import { doc, updateDoc, increment } 
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-window.likeComentario = async function(id, likesActuales){
-
-const ref = doc(db, "comentarios", id);
-
-await updateDoc(ref, {
-likes: increment(1)
-});
-
-};
-// Importar Firebase
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } 
-from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-// CONFIGURACIÓN DE TU FIREBASE
-const firebaseConfig = {
-  apiKey: "AIzaSyA8WGCAHKXLrIjPFLqg1OFRVynDzy3xx-Q",
-  authDomain: "entrenubes-9199b.firebaseapp.com",
-  projectId: "entrenubes-9199b",
-  storageBucket: "entrenubes-9199b.firebasestorage.app",
-  messagingSenderId: "1076182010590",
-  appId: "1:1076182010590:web:dee43b3e936c351b50104f"
-};
-
-// INICIALIZAR FIREBASE
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-// COLECCIÓN
-const comentariosRef = collection(db, "comentarios");
-
-// GUARDAR COMENTARIO
-async function guardarComentario(nombre, texto, estado){
-
-try {
-
-await addDoc(comentariosRef, {
-nombre: nombre || "Anónimo",
-texto: texto,
-estado: estado,
-fecha: Date.now()
-});
-
-} catch (error) {
-console.error("Error guardando:", error);
-}
-
-}
-
-// HACER GLOBAL la función para Parte 2
-window.enviarComentarioFirebase = guardarComentario;
-
-// LEER COMENTARIOS EN TIEMPO REAL
-const q = query(comentariosRef, orderBy("fecha", "desc"));
-function tiempoTranscurrido(fecha){
-
-const segundos = Math.floor((Date.now() - fecha)/1000);
-
-if(segundos<60) return "Hace unos segundos";
-
-const minutos=Math.floor(segundos/60);
-
-if(minutos<60)
-return "Hace "+minutos+(minutos==1?" minuto":" minutos");
-
-const horas=Math.floor(minutos/60);
-
-if(horas<24)
-return "Hace "+horas+(horas==1?" hora":" horas");
-
-const dias=Math.floor(horas/24);
-
-if(dias<30)
-return "Hace "+dias+(dias==1?" día":" días");
-
-const meses=Math.floor(dias/30);
-
-if(meses<12)
-return "Hace "+meses+(meses==1?" mes":" meses");
-
-const años=Math.floor(meses/12);
-
-return "Hace "+años+(años==1?" año":" años");
-
-}
-onSnapshot(q, (snapshot)=>{
-
-const lista = document.getElementById("lista");
-lista.innerHTML = "";
-
-snapshot.forEach(doc=>{
-
-const data = doc.data();
-
-const div = document.createElement("div");
-div.className = "comentario";
-
-div.innerHTML = `
-<b>☁ ${data.nombre}</b>
-
-<div style="
-font-size:12px;
-color:#7a8c9c;
-margin:5px 0 10px;
-">
-
-🕒 ${tiempoTranscurrido(data.fecha)}
-
-</div>
-
-<p class="estado">${data.estado}</p>
-
-<p>${data.texto}</p>
-
-<div class="accionesComentario">
-
-<button onclick="mostrarRespuesta('${doc.id}')">
-
-💬 Responder
-
-</button>
-
-</div>
-
-<div id="respuesta-${doc.id}" class="respuestaBox" style="display:none;">
+</label>
 
 <input
-id="input-${doc.id}"
-placeholder="Escribe una respuesta...">
+type="text"
+id="nombre"
+maxlength="35"
+placeholder="Tu nombre (opcional)">
 
-<button onclick="enviarRespuesta('${doc.id}')">
+</div>
 
-Enviar
+<div class="formGroup">
+
+<label>
+
+¿Cómo te hizo sentir?
+
+</label>
+
+<div class="estadoSelector">
+
+<button class="estadoBtn">😊</button>
+
+<button class="estadoBtn">🥹</button>
+
+<button class="estadoBtn">😌</button>
+
+<button class="estadoBtn">🤍</button>
+
+<button class="estadoBtn">🌧️</button>
+
+<button class="estadoBtn">💙</button>
+
+<button class="estadoBtn">☁️</button>
+
+<button class="estadoBtn">✨</button>
+
+</div>
+
+</div>
+
+<div class="formGroup">
+
+<label>
+
+Tu pensamiento
+
+</label>
+
+<textarea
+
+id="mensaje"
+
+maxlength="600"
+
+placeholder="Escribe aquí lo que esta historia despertó en ti..."></textarea>
+
+</div>
+
+<button
+class="publicar"
+id="btnPublicar">
+
+☁ Publicar pensamiento
 
 </button>
 
 </div>
 
-<div id="lista-${doc.id}"></div>
-`;
-<div class="acciones">
-<button onclick="likeComentario('${doc.id}', ${data.likes || 0})">
-❤️ ${data.likes || 0}
-</button>
 </div>
-`;
 
-lista.appendChild(div);
+<!-- Aquí aparecerán los comentarios -->
 
-});
+<div id="comentarios"></div>
+<!--=================================================
+        FIREBASE + JAVASCRIPT
+==================================================-->
 
-});
+<script type="module">
 
-</script>
-<!-- =====================================
-     ENTRE NUBES - PARTE 4
-     ESTILO FINAL
-===================================== -->
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-<style>
+import {
 
-/* MEJORA GENERAL */
-body{
-background: linear-gradient(180deg,#eaf6ff,#f7fbff);
-}
+getFirestore,
 
-/* CONTENEDOR NOTAS */
-.comentario{
-background: #fff;
-border-radius: 18px;
-padding: 16px;
-margin-top: 14px;
-box-shadow: 0 8px 18px rgba(0,0,0,.08);
-position: relative;
-animation: aparecer .4s ease;
-}
+collection,
 
-/* PIN DE HOJA */
-.comentario::before{
-content: "📎";
-position: absolute;
-top: -10px;
-left: 15px;
-font-size: 20px;
-}
+addDoc,
 
-/* NOMBRE */
-.comentario b{
-color: #355d75;
-font-size: 16px;
-}
+serverTimestamp,
 
-/* ESTADO */
-.estado{
-font-size: 20px;
-margin: 6px 0;
-}
+query,
 
-/* TEXTO */
-.comentario p{
-color: #4d6a7a;
-line-height: 1.6;
-}
+orderBy,
 
-/* BOTONES ESTADOS */
-.estado{
-cursor: pointer;
-transition: .2s;
-}
+onSnapshot
 
-.estado:hover{
-transform: scale(1.2);
-}
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* EFECTO ENTRADA */
-@keyframes aparecer{
-from{
-opacity: 0;
-transform: translateY(10px);
-}
-to{
-opacity: 1;
-transform: translateY(0);
-}
-}
+/*==================================
+        CONFIGURACIÓN FIREBASE
+==================================*/
 
-/* BOTÓN BONITO */
-button{
-transition: .3s;
-}
+const firebaseConfig={
 
-button:hover{
-transform: translateY(-2px);
-}
+apiKey:"AIzaSyA8WGCAHKXLrIjPFLqg1OFRVynDzy3xx-Q",
 
-/* CUADERNO MÁS REALISTA */
-.notebook{
-background-image: repeating-linear-gradient(
-white,
-white 32px,
-#d7ecff 33px
-);
-}
+authDomain:"entrenubes-9199b.firebaseapp.com",
 
-/* RESPONSIVE */
-@media (max-width: 600px){
+projectId:"entrenubes-9199b",
 
-header h1{
-font-size: 24px;
-}
+storageBucket:"entrenubes-9199b.firebasestorage.app",
 
-.notebook{
-padding: 18px;
-}
+messagingSenderId:"1076182010590",
 
-}
-
-</style>
-<!-- =====================================
-     ENTRE NUBES - PARTE 5 FINAL
-===================================== -->
-
-<script>
-
-// ================================
-// MEJORA FINAL DEL SISTEMA
-// ================================
-
-// evitar errores si Firebase tarda
-window.addEventListener("load", ()=>{
-
-console.log("☁ Entre Nubes cargado correctamente");
-
-});
-
-// mejorar selección visual de estados
-document.querySelectorAll(".estado").forEach(btn=>{
-
-btn.addEventListener("click", ()=>{
-
-document.querySelectorAll(".estado").forEach(b=>{
-b.style.background="white";
-b.style.transform="scale(1)";
-});
-
-btn.style.background="#bfe9ff";
-btn.style.transform="scale(1.3)";
-
-});
-
-});
-
-// limpieza automática del input después de enviar
-const originalEnviar = window.enviar;
-
-window.enviar = function(){
-
-let texto = document.getElementById("texto");
-let nombre = document.getElementById("nombre");
-
-// ejecutar función original
-originalEnviar();
-
-// limpiar solo si hay contenido
-if(texto.value.trim() !== ""){
-texto.value="";
-}
+appId:"1:1076182010590:web:dee43b3e936c351b50104f"
 
 };
 
-// mensaje de consola bonito
-console.log(`
-☁️ ==========================
-   ENTRE NUBES ACTIVADO
-   Sistema de comentarios listo
-========================== ☁️
-`);
+const app=initializeApp(firebaseConfig);
+
+const db=getFirestore(app);
+
+/*==================================
+        VARIABLES
+==================================*/
+
+let estadoSeleccionado="☁️";
+
+const botonesEstado=document.querySelectorAll(".estadoBtn");
+
+const botonPublicar=document.getElementById("btnPublicar");
+
+/*==================================
+      SELECCIONAR EMOCIÓN
+==================================*/
+
+botonesEstado.forEach(boton=>{
+
+boton.addEventListener("click",()=>{
+
+botonesEstado.forEach(b=>b.classList.remove("estadoActivo"));
+
+boton.classList.add("estadoActivo");
+
+estadoSeleccionado=boton.innerHTML;
+
+});
+
+});
+
+/*==================================
+        PUBLICAR COMENTARIO
+==================================*/
+
+async function publicar(){
+
+const nombre=document.getElementById("nombre").value.trim();
+
+const mensaje=document.getElementById("mensaje").value.trim();
+
+if(mensaje===""){
+
+alert("Escribe un pensamiento antes de publicarlo.");
+
+return;
+
+}
+
+await addDoc(collection(db,"comentarios"),{
+
+nombre:nombre===""?"Anónimo":nombre,
+
+mensaje:mensaje,
+
+estado:estadoSeleccionado,
+
+fecha:serverTimestamp(),
+
+fijado:false,
+
+likes:0
+
+});
+
+document.getElementById("nombre").value="";
+
+document.getElementById("mensaje").value="";
+
+estadoSeleccionado="☁️";
+
+botonesEstado.forEach(b=>b.classList.remove("estadoActivo"));
+
+}
+
+botonPublicar.addEventListener("click",publicar);
+
+/*==================================
+      MOSTRAR COMENTARIOS
+==================================*/
+
+const lista=document.getElementById("comentarios");
+
+const consulta=query(
+
+collection(db,"comentarios"),
+
+orderBy("fecha","desc")
+
+);
+
+onSnapshot(consulta,(snapshot)=>{
+
+lista.innerHTML="";
+
+/* Aquí construiremos cada comentario
+en la Parte 4 */
+
+snapshot.forEach((doc)=>{
+
+const data=doc.data();
+
+const tarjeta=document.createElement("div");
+
+tarjeta.className="comentario";
+
+tarjeta.innerHTML=`
+
+<div style="padding:25px">
+
+<b>${data.estado} ${data.nombre}</b>
+
+<p style="margin-top:12px;line-height:1.8;">
+
+${data.mensaje}
+
+</p>
+
+</div>
+
+`;
+
+lista.appendChild(tarjeta);
+
+});
+
+});
 
 </script>
