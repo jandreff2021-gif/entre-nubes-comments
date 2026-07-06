@@ -848,24 +848,43 @@ tarjeta.className="comentario";
 
 tarjeta.innerHTML=`
 
-<div style="padding:25px">
+<div class="contenidoComentario">
 
-<b>${data.estado} ${data.nombre}</b>
+<div class="nombreComentario">
 
-<p style="margin-top:12px;line-height:1.8;">
+${data.estado} ${data.nombre}
+
+</div>
+
+<div class="tiempoComentario">
+
+🕒 ${tiempo(data.fecha)}
+
+</div>
+
+<div class="textoComentario">
 
 ${data.mensaje}
 
-</p>
+</div>
+
+<div class="accionesComentario">
+
+<button class="responderBtn">
+
+💬 Responder
+
+</button>
+
+</div>
+
+<div class="zonaRespuestas">
+
+<!-- Aquí aparecerán las respuestas -->
+
+</div>
 
 </div>
 
 `;
-
-lista.appendChild(tarjeta);
-
-});
-
-});
-
 </script>
