@@ -1,900 +1,664 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
 
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Entre Nubes | Buzón de Pensamientos</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-/*=================================================
-        ENTRE NUBES
-        VERSIÓN 2.0
-=================================================*/
-
-*{
-
-margin:0;
-
-padding:0;
-
-box-sizing:border-box;
-
-}
-
-html{
-
-scroll-behavior:smooth;
-
-}
-
-body{
-
-background:linear-gradient(180deg,#eaf7ff,#f8fcff);
-
-font-family:'Poppins',sans-serif;
-
-padding:40px 15px;
-
-color:#456172;
-
-}
-
-/*==================================
-            CONTENEDOR
-==================================*/
-
-.container{
-
-max-width:900px;
-
-margin:auto;
-
-}
-
-/*==================================
-              CABECERA
-==================================*/
-
-.header{
-
-background:linear-gradient(180deg,#7ccdf2,#b8e6fa,#eefbff);
-
-border-radius:30px;
-
-padding:45px;
-
-text-align:center;
-
-box-shadow:0 15px 35px rgba(0,0,0,.12);
-
-position:relative;
-
-overflow:hidden;
-
-margin-bottom:35px;
-
-}
-
-/*==================================
-             NUBES
-==================================*/
-
-.cloud{
-
-position:absolute;
-
-background:white;
-
-border-radius:100px;
-
-opacity:.75;
-
-}
-
-.cloud::before,
-.cloud::after{
-
-content:"";
-
-position:absolute;
-
-background:white;
-
-border-radius:50%;
-
-}
-
-.cloud1{
-
-width:170px;
-
-height:55px;
-
-top:40px;
-
-left:-70px;
-
-animation:cloudMove 40s linear infinite;
-
-}
-
-.cloud1::before{
-
-width:60px;
-
-height:60px;
-
-left:20px;
-
-top:-22px;
-
-}
-
-.cloud1::after{
-
-width:80px;
-
-height:80px;
-
-right:15px;
-
-top:-32px;
-
-}
-
-.cloud2{
-
-width:210px;
-
-height:60px;
-
-top:150px;
-
-right:-90px;
-
-animation:cloudMove2 55s linear infinite;
-
-}
-
-.cloud2::before{
-
-width:70px;
-
-height:70px;
-
-left:18px;
-
-top:-28px;
-
-}
-
-.cloud2::after{
-
-width:90px;
-
-height:90px;
-
-right:18px;
-
-top:-38px;
-
-}
-
-/*==================================
-             TITULO
-==================================*/
-
-.header h1{
-
-font-size:65px;
-
-font-weight:700;
-
-letter-spacing:4px;
-
-color:#35556b;
-
-position:relative;
-
-z-index:2;
-
-}
-
-.header p{
-
-margin-top:12px;
-
-font-size:19px;
-
-font-family:'Patrick Hand',cursive;
-
-color:#5f7b8c;
-
-position:relative;
-
-z-index:2;
-
-}
-
-/*==================================
-          ANIMACIONES
-==================================*/
-
-@keyframes cloudMove{
-
-0%{
-
-transform:translateX(0);
-
-}
-
-100%{
-
-transform:translateX(1050px);
-
-}
-
-}
-
-@keyframes cloudMove2{
-
-0%{
-
-transform:translateX(0);
-
-}
-
-100%{
-
-transform:translateX(-1050px);
-
-}
-
-}
-
-/*==================================
-      RESPONSIVE
-==================================*/
-
-@media(max-width:700px){
-
-.header{
-
-padding:30px 20px;
-
-}
-
-.header h1{
-
-font-size:42px;
-
-}
-
-.header p{
-
-font-size:17px;
-
-}
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<div class="header">
-
-<div class="cloud cloud1"></div>
-
-<div class="cloud cloud2"></div>
-
-<h1>☁ Entre Nubes</h1>
-
-<p>
-
-Un lugar donde los pensamientos también dejan huella.
-
-</p>
-
-</div>
-<!--=================================================
-            CUADERNO DE PENSAMIENTOS
-==================================================-->
-
-<style>
-
-.notebook{
-
-background:#fffefa;
-
-border-radius:28px;
-
-padding:35px;
-
-box-shadow:0 15px 35px rgba(0,0,0,.10);
-
-position:relative;
-
-overflow:hidden;
-
-margin-bottom:35px;
-
-}
-
-/* Línea roja del cuaderno */
-
-.notebook::before{
-
-content:"";
-
-position:absolute;
-
-left:60px;
-
-top:0;
-
-bottom:0;
-
-width:3px;
-
-background:#ff9e9e;
-
-opacity:.8;
-
-}
-
-/* Líneas azules */
-
-.notebook::after{
-
-content:"";
-
-position:absolute;
-
-left:0;
-
-top:0;
-
-right:0;
-
-bottom:0;
-
-background:repeating-linear-gradient(
-
-transparent,
-
-transparent 33px,
-
-#d7ecff 34px
-
-);
-
-pointer-events:none;
-
-}
-
-.notebookContent{
-
-position:relative;
-
-z-index:2;
-
-padding-left:55px;
-
-}
-
-.notebook h2{
-
-font-size:32px;
-
-color:#3c5d74;
-
-margin-bottom:8px;
-
-font-family:'Patrick Hand',cursive;
-
-}
-
-.notebook p{
-
-color:#688091;
-
-line-height:1.8;
-
-margin-bottom:25px;
-
-}
-
-/*==================================
-          FORMULARIO
-==================================*/
-
-.formGroup{
-
-margin-bottom:18px;
-
-}
-
-.formGroup label{
-
-display:block;
-
-margin-bottom:8px;
-
-font-weight:600;
-
-color:#456172;
-
-}
-
-.formGroup input,
-
-.formGroup textarea{
-
-width:100%;
-
-border:none;
-
-border-radius:16px;
-
-padding:14px 16px;
-
-font-size:15px;
-
-font-family:'Poppins',sans-serif;
-
-background:#f6fbff;
-
-box-shadow:inset 0 0 0 2px #dceef9;
-
-outline:none;
-
-transition:.3s;
-
-}
-
-.formGroup input:focus,
-
-.formGroup textarea:focus{
-
-box-shadow:inset 0 0 0 2px #8fd2f2;
-
-background:white;
-
-}
-
-.formGroup textarea{
-
-resize:none;
-
-min-height:140px;
-
-}
-
-/*==================================
-          ESTADOS
-==================================*/
-
-.estadoSelector{
-
-display:flex;
-
-gap:10px;
-
-flex-wrap:wrap;
-
-margin-top:10px;
-
-}
-
-.estadoBtn{
-
-width:48px;
-
-height:48px;
-
-border-radius:50%;
-
-border:none;
-
-font-size:22px;
-
-cursor:pointer;
-
-background:white;
-
-box-shadow:0 4px 10px rgba(0,0,0,.08);
-
-transition:.25s;
-
-}
-
-.estadoBtn:hover{
-
-transform:scale(1.15);
-
-}
-
-.estadoActivo{
-
-background:#bfe8ff !important;
-
-}
-
-/*==================================
-            BOTÓN
-==================================*/
-
-.publicar{
-
-margin-top:15px;
-
-border:none;
-
-background:#77ccef;
-
-color:white;
-
-font-size:16px;
-
-padding:15px 28px;
-
-border-radius:30px;
-
-cursor:pointer;
-
-font-weight:600;
-
-transition:.3s;
-
-box-shadow:0 10px 20px rgba(68,177,230,.35);
-
-}
-
-.publicar:hover{
-
-transform:translateY(-3px);
-
-background:#63bde3;
-
-}
-
-@media(max-width:700px){
-
-.notebook{
-
-padding:22px;
-
-}
-
-.notebookContent{
-
-padding-left:25px;
-
-}
-
-.notebook::before{
-
-left:28px;
-
-}
-
-}
-
-</style>
-
-<div class="notebook">
-
-<div class="notebookContent">
-
-<h2>
-
-📝 Buzón de Pensamientos
-
-</h2>
-
-<p>
-
-Si alguna historia te hizo sentir algo, puedes dejar aquí un pequeño pensamiento.
-
-</p>
-
-<div class="formGroup">
-
-<label>
-
-Nombre
-
-</label>
-
-<input
-type="text"
-id="nombre"
-maxlength="35"
-placeholder="Tu nombre (opcional)">
-
-</div>
-
-<div class="formGroup">
-
-<label>
-
-¿Cómo te hizo sentir?
-
-</label>
-
-<div class="estadoSelector">
-
-<button class="estadoBtn">😊</button>
-
-<button class="estadoBtn">🥹</button>
-
-<button class="estadoBtn">😌</button>
-
-<button class="estadoBtn">🤍</button>
-
-<button class="estadoBtn">🌧️</button>
-
-<button class="estadoBtn">💙</button>
-
-<button class="estadoBtn">☁️</button>
-
-<button class="estadoBtn">✨</button>
-
-</div>
-
-</div>
-
-<div class="formGroup">
-
-<label>
-
-Tu pensamiento
-
-</label>
-
-<textarea
-
-id="mensaje"
-
-maxlength="600"
-
-placeholder="Escribe aquí lo que esta historia despertó en ti..."></textarea>
-
-</div>
-
-<button
-class="publicar"
-id="btnPublicar">
-
-☁ Publicar pensamiento
-
-</button>
-
-</div>
-
-</div>
-
-<!-- Aquí aparecerán los comentarios -->
-
-<div id="comentarios"></div>
-<!--=================================================
-        FIREBASE + JAVASCRIPT
-==================================================-->
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-
-getFirestore,
-
-collection,
-
-addDoc,
-
-serverTimestamp,
-
-query,
-
-orderBy,
-
-onSnapshot
-
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
-/*==================================
-        CONFIGURACIÓN FIREBASE
-==================================*/
-
-const firebaseConfig={
-
-apiKey:"AIzaSyA8WGCAHKXLrIjPFLqg1OFRVynDzy3xx-Q",
-
-authDomain:"entrenubes-9199b.firebaseapp.com",
-
-projectId:"entrenubes-9199b",
-
-storageBucket:"entrenubes-9199b.firebasestorage.app",
-
-messagingSenderId:"1076182010590",
-
-appId:"1:1076182010590:web:dee43b3e936c351b50104f"
-
-};
-
-const app=initializeApp(firebaseConfig);
-
-const db=getFirestore(app);
-
-/*==================================
-        VARIABLES
-==================================*/
-
-let estadoSeleccionado="☁️";
-
-const botonesEstado=document.querySelectorAll(".estadoBtn");
-
-const botonPublicar=document.getElementById("btnPublicar");
-
-/*==================================
-      SELECCIONAR EMOCIÓN
-==================================*/
-
-botonesEstado.forEach(boton=>{
-
-boton.addEventListener("click",()=>{
-
-botonesEstado.forEach(b=>b.classList.remove("estadoActivo"));
-
-boton.classList.add("estadoActivo");
-
-estadoSeleccionado=boton.innerHTML;
-
-});
-
-});
-
-/*==================================
-        PUBLICAR COMENTARIO
-==================================*/
-
-async function publicar(){
-
-const nombre=document.getElementById("nombre").value.trim();
-
-const mensaje=document.getElementById("mensaje").value.trim();
-
-if(mensaje===""){
-
-alert("Escribe un pensamiento antes de publicarlo.");
-
-return;
-
-}
-
-await addDoc(collection(db,"comentarios"),{
-
-nombre:nombre===""?"Anónimo":nombre,
-
-mensaje:mensaje,
-
-estado:estadoSeleccionado,
-
-fecha:serverTimestamp(),
-
-fijado:false,
-
-likes:0
-
-});
-
-document.getElementById("nombre").value="";
-
-document.getElementById("mensaje").value="";
-
-estadoSeleccionado="☁️";
-
-botonesEstado.forEach(b=>b.classList.remove("estadoActivo"));
-
-}
-
-botonPublicar.addEventListener("click",publicar);
-
-/*==================================
-      MOSTRAR COMENTARIOS
-==================================*/
-
-const lista=document.getElementById("comentarios");
-
-const consulta=query(
-
-collection(db,"comentarios"),
-
-orderBy("fecha","desc")
-
-);
-
-onSnapshot(consulta,(snapshot)=>{
-
-lista.innerHTML="";
-
-/* Aquí construiremos cada comentario
-en la Parte 4 */
-
-snapshot.forEach((doc)=>{
-
-const data=doc.data();
-
-const tarjeta=document.createElement("div");
-
-tarjeta.className="comentario";
-
-tarjeta.innerHTML=`
-
-<div class="contenidoComentario">
-
-<div class="nombreComentario">
-
-${data.estado} ${data.nombre}
-
-</div>
-
-<div class="tiempoComentario">
-
-🕒 ${tiempo(data.fecha)}
-
-</div>
-
-<div class="textoComentario">
-
-${data.mensaje}
-
-</div>
-
-<div class="accionesComentario">
-
-<button class="responderBtn">
-
-💬 Responder
-
-</button>
-
-</div>
-
-<div class="zonaRespuestas">
-
-<!-- Aquí aparecerán las respuestas -->
-
-</div>
-
-</div>
-
-`;
-lista.appendChild(tarjeta);
-
-});
-
-});
-
-</script>
-
-</body>
-
-</html>
+  <!--=========================================
+        META Y CONFIGURACIÓN BASE
+  ==========================================-->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Entre Nubes – Un lugar donde los pensamientos también dejan huella." />
+  <title>☁ Entre Nubes</title>
+
+  <!--=========================================
+        TIPOGRAFÍAS GOOGLE FONTS
+  ==========================================-->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /*=========================================
+          RESET Y VARIABLES GLOBALES
+    ==========================================*/
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-sky:        #ddefff;
+      --color-sky-light:  #eef7ff;
+      --color-sky-mid:    #c2dcf5;
+      --color-white:      #ffffff;
+      --color-blue-soft:  #a8cce8;
+      --color-blue-line:  #c5dff5;
+      --color-red-line:   #f5a0a0;
+      --color-grey-1:     #f4f7fb;
+      --color-grey-2:     #e8eef5;
+      --color-grey-3:     #b0c0d0;
+      --color-grey-text:  #8898aa;
+      --color-text:       #3d5166;
+      --color-text-soft:  #6b82a0;
+      --color-clip:       #9ab8d4;
+      --color-like:       #e07b8a;
+      --font-body:        'Poppins', sans-serif;
+      --font-title:       'Patrick Hand', cursive;
+      --shadow-soft:      0 4px 24px rgba(120,160,200,0.13);
+      --shadow-card:      0 6px 32px rgba(120,160,200,0.18);
+      --radius-card:      18px;
+      --radius-input:     12px;
+      --transition:       0.25s ease;
+    }
+
+    /*=========================================
+          BASE GLOBAL
+    ==========================================*/
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: linear-gradient(175deg, #ddefff 0%, #eef7ff 40%, #f8fbff 100%);
+      min-height: 100vh;
+      color: var(--color-text);
+      overflow-x: hidden;
+    }
+
+    /*=========================================
+          ENCABEZADO / HERO
+    ==========================================*/
+    .hero {
+      position: relative;
+      width: 100%;
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 24px 40px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    /* Degradado inferior del hero */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, #eef7ff);
+      pointer-events: none;
+    }
+
+    /* Nube decorativa base */
+    .cloud {
+      position: absolute;
+      background: var(--color-white);
+      border-radius: 50px;
+      opacity: 0.75;
+      filter: blur(1px);
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: '';
+      position: absolute;
+      background: var(--color-white);
+      border-radius: 50%;
+    }
+
+    /* Nube 1 – izquierda */
+    .cloud-1 {
+      width: 160px;
+      height: 50px;
+      top: 40px;
+      left: -20px;
+      animation: floatCloud1 18s ease-in-out infinite;
+    }
+
+    .cloud-1::before {
+      width: 70px;
+      height: 70px;
+      top: -35px;
+      left: 20px;
+    }
+
+    .cloud-1::after {
+      width: 50px;
+      height: 50px;
+      top: -25px;
+      left: 65px;
+    }
+
+    /* Nube 2 – derecha */
+    .cloud-2 {
+      width: 200px;
+      height: 60px;
+      top: 60px;
+      right: -30px;
+      animation: floatCloud2 22s ease-in-out infinite;
+    }
+
+    .cloud-2::before {
+      width: 90px;
+      height: 90px;
+      top: -45px;
+      left: 25px;
+    }
+
+    .cloud-2::after {
+      width: 65px;
+      height: 65px;
+      top: -30px;
+      left: 90px;
+    }
+
+    /* Nube 3 – pequeña centro-izquierda */
+    .cloud-3 {
+      width: 100px;
+      height: 34px;
+      top: 160px;
+      left: 12%;
+      opacity: 0.45;
+      animation: floatCloud1 26s ease-in-out infinite reverse;
+    }
+
+    .cloud-3::before {
+      width: 44px;
+      height: 44px;
+      top: -22px;
+      left: 14px;
+    }
+
+    .cloud-3::after {
+      width: 32px;
+      height: 32px;
+      top: -16px;
+      left: 48px;
+    }
+
+    @keyframes floatCloud1 {
+      0%   { transform: translateX(0px) translateY(0px); }
+      30%  { transform: translateX(18px) translateY(-6px); }
+      60%  { transform: translateX(8px) translateY(4px); }
+      100% { transform: translateX(0px) translateY(0px); }
+    }
+
+    @keyframes floatCloud2 {
+      0%   { transform: translateX(0px) translateY(0px); }
+      25%  { transform: translateX(-14px) translateY(5px); }
+      55%  { transform: translateX(-22px) translateY(-4px); }
+      100% { transform: translateX(0px) translateY(0px); }
+    }
+
+    /* Título principal */
+    .hero-title {
+      font-family: var(--font-title);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      color: var(--color-text);
+      letter-spacing: 0.02em;
+      position: relative;
+      z-index: 2;
+      text-shadow: 0 2px 12px rgba(140,180,220,0.3);
+    }
+
+    /* Subtítulo */
+    .hero-subtitle {
+      font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+      color: var(--color-text-soft);
+      font-weight: 300;
+      margin-top: 10px;
+      letter-spacing: 0.03em;
+      position: relative;
+      z-index: 2;
+      max-width: 480px;
+    }
+
+    /*=========================================
+          CONTENEDOR PRINCIPAL
+    ==========================================*/
+    .main-container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    /*=========================================
+          PANEL DE ADMINISTRADOR
+    ==========================================*/
+    .admin-bar {
+      display: none; /* oculto por defecto, JS lo activa */
+      background: rgba(255,255,255,0.85);
+      border: 1.5px solid var(--color-sky-mid);
+      border-radius: var(--radius-input);
+      padding: 12px 20px;
+      margin-bottom: 28px;
+      align-items: center;
+      gap: 12px;
+      box-shadow: var(--shadow-soft);
+      flex-wrap: wrap;
+    }
+
+    .admin-bar.visible {
+      display: flex;
+    }
+
+    .admin-badge {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--color-blue-soft);
+      background: var(--color-sky-light);
+      border: 1.5px solid var(--color-blue-line);
+      border-radius: 20px;
+      padding: 4px 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .btn-admin-login {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--color-text-soft);
+      background: transparent;
+      border: 1.5px solid var(--color-grey-3);
+      border-radius: 20px;
+      padding: 5px 14px;
+      cursor: pointer;
+      transition: all var(--transition);
+      margin-left: auto;
+    }
+
+    .btn-admin-login:hover {
+      background: var(--color-grey-1);
+      border-color: var(--color-blue-soft);
+      color: var(--color-text);
+    }
+
+    /*=========================================
+          FORMULARIO – CUADERNO
+    ==========================================*/
+    .notebook-form {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 36px 36px 30px 52px; /* izquierda extra para la línea roja */
+      margin-bottom: 48px;
+      position: relative;
+      overflow: hidden;
+
+      /* Líneas horizontales de cuaderno */
+      background-image:
+        linear-gradient(var(--color-blue-line) 1px, transparent 1px);
+      background-size: 100% 32px;
+      background-position: 0 48px;
+    }
+
+    /* Línea roja vertical de cuaderno */
+    .notebook-form::before {
+      content: '';
+      position: absolute;
+      left: 36px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--color-red-line);
+    }
+
+    /* Espiral decorativa (puntos) */
+    .notebook-form::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 20px;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 22px,
+        var(--color-grey-2) 22px,
+        var(--color-grey-2) 34px
+      );
+    }
+
+    .form-title {
+      font-family: var(--font-title);
+      font-size: 1.3rem;
+      color: var(--color-text);
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Grupo de campo */
+    .form-group {
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--color-text-soft);
+      margin-bottom: 7px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .form-input {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--color-text);
+      background: var(--color-sky-light);
+      border: 1.5px solid var(--color-blue-line);
+      border-radius: var(--radius-input);
+      padding: 11px 16px;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .form-input::placeholder {
+      color: var(--color-grey-3);
+    }
+
+    .form-input:focus {
+      border-color: var(--color-blue-soft);
+      box-shadow: 0 0 0 3px rgba(168,204,232,0.25);
+    }
+
+    /* Selector de emojis */
+    .emoji-selector {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .emoji-btn {
+      font-size: 1.4rem;
+      background: var(--color-sky-light);
+      border: 2px solid var(--color-blue-line);
+      border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--transition);
+      user-select: none;
+    }
+
+    .emoji-btn:hover {
+      background: var(--color-sky);
+      border-color: var(--color-blue-soft);
+      transform: scale(1.1);
+    }
+
+    .emoji-btn.selected {
+      background: var(--color-sky-mid);
+      border-color: var(--color-blue-soft);
+      box-shadow: 0 0 0 3px rgba(168,204,232,0.35);
+      transform: scale(1.12);
+    }
+
+    /* Textarea */
+    .form-textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--color-text);
+      background: transparent; /* para ver las líneas del cuaderno */
+      border: none;
+      border-bottom: 1.5px solid var(--color-blue-line);
+      border-radius: 0;
+      padding: 6px 2px;
+      resize: none;
+      outline: none;
+      min-height: 120px;
+      line-height: 32px; /* alinear con las líneas del fondo */
+      transition: border-color var(--transition);
+    }
+
+    .form-textarea::placeholder {
+      color: var(--color-grey-3);
+      font-style: italic;
+    }
+
+    .form-textarea:focus {
+      border-bottom-color: var(--color-blue-soft);
+    }
+
+    /* Contador de caracteres */
+    .char-counter {
+      text-align: right;
+      font-size: 0.75rem;
+      color: var(--color-grey-3);
+      margin-top: 5px;
+      transition: color var(--transition);
+    }
+
+    .char-counter.warning {
+      color: #e07b8a;
+    }
+
+    /* Botón publicar */
+    .btn-publish {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--color-text);
+      background: linear-gradient(135deg, #ddefff 0%, #c2dcf5 100%);
+      border: 1.5px solid var(--color-blue-soft);
+      border-radius: 30px;
+      padding: 12px 30px;
+      cursor: pointer;
+      transition: all var(--transition);
+      box-shadow: var(--shadow-soft);
+      letter-spacing: 0.02em;
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .btn-publish:hover {
+      background: linear-gradient(135deg, #c2dcf5 0%, #a8cce8 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(120,160,200,0.28);
+    }
+
+    .btn-publish:active {
+      transform: translateY(0px);
+    }
+
+    .btn-publish:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /*=========================================
+          SEPARADOR DE SECCIÓN
+    ==========================================*/
+    .section-divider {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .section-divider-title {
+      font-family: var(--font-title);
+      font-size: 1.1rem;
+      color: var(--color-text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-divider-title::before,
+    .section-divider-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 1px;
+      background: var(--color-grey-2);
+    }
+
+    /*=========================================
+          LISTA DE COMENTARIOS
+    ==========================================*/
+    .comments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* Mensaje vacío */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--color-grey-3);
+    }
+
+    .empty-state-icon {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      display: block;
+      opacity: 0.6;
+    }
+
+    .empty-state p {
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    /*=========================================
+          TARJETA DE COMENTARIO
+    ==========================================*/
+    .comment-card {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow-card);
+      padding: 28px 28px 20px 50px; /* espacio para línea roja */
+      position: relative;
+      overflow: hidden;
+      animation: cardAppear 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+      /* Líneas horizontales cuaderno */
+      background-image:
+        linear-gradient(var(--color-blue-line) 1px, transparent 1px);
+      background-size: 100% 28px;
+      background-position: 0 42px;
+
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .comment-card:hover {
+      box-shadow: 0 10px 40px rgba(120,160,200,0.22);
+      transform: translateY(-2px);
+    }
+
+    /* Línea roja vertical */
+    .comment-card::before {
+      content: '';
+      position: absolute;
+      left: 34px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--color-red-line);
+    }
+
+    /* Clip decorativo arriba */
+    .comment-clip {
+      position: absolute;
+      top: -2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 34px;
+      z-index: 3;
+    }
+
+    .comment-clip svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Indicador fijado */
+    .comment-card.pinned {
+      border: 2px solid var(--color-blue-soft);
+      background-color: #f0f8ff;
+    }
+
+    .pinned-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--color-blue-soft);
+      background: var(--color-sky-light);
+      border: 1px solid var(--color-blue-line);
+      border-radius: 20px;
+      padding: 2px 10px;
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    /* Cabecera de la tarjeta */
+    .comment-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .comment-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .comment-emoji {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .comment-author {
+      font-family: var(--font-title);
+      font-size: 1rem;
+      color: var(--color-text);
+    }
+
+    .comment-time {
+      font-size: 0.75rem;
+      color: var(--color-grey-3);
+      font-style: italic;
+    }
+
+    /* Texto del comentario */
+    .comment-body {
+      font-size: 0.93rem;
+      color: var(--color-text);
+      line-height: 1.75;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin-bottom: 14px;
+    }
+
+    /* Acc
