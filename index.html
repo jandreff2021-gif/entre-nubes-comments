@@ -661,4 +661,1444 @@
       margin-bottom: 14px;
     }
 
-    /* Acc
+    /* Acciones de la tarjeta */
+    .comment-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Botón de like */
+    .btn-like {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--color-grey-text);
+      background: transparent;
+      border: 1.5px solid var(--color-grey-2);
+      border-radius: 20px;
+      padding: 4px 12px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .btn-like:hover {
+      border-color: var(--color-like);
+      color: var(--color-like);
+      background: #fff0f2;
+    }
+
+    .btn-like.liked {
+      border-color: var(--color-like);
+      color: var(--color-like);
+      background: #fff0f2;
+    }
+
+    /* Botón responder */
+    .btn-reply {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--color-text-soft);
+      background: transparent;
+      border: 1.5px solid var(--color-grey-2);
+      border-radius: 20px;
+      padding: 4px 12px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .btn-reply:hover {
+      border-color: var(--color-blue-soft);
+      color: var(--color-text);
+      background: var(--color-sky-light);
+    }
+
+    /* Botones de administrador en tarjeta */
+    .btn-admin-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--color-grey-text);
+      background: transparent;
+      border: 1.5px solid var(--color-grey-2);
+      border-radius: 20px;
+      padding: 3px 10px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .btn-admin-action:hover {
+      border-color: var(--color-grey-3);
+      color: var(--color-text);
+      background: var(--color-grey-1);
+    }
+
+    .btn-admin-action.delete:hover {
+      border-color: #e07b8a;
+      color: #e07b8a;
+      background: #fff0f2;
+    }
+
+    /*=========================================
+          FORMULARIO DE RESPUESTA (INLINE)
+    ==========================================*/
+    .reply-form-wrapper {
+      display: none;  /* oculto por defecto */
+      margin-top: 16px;
+      animation: cardAppear 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .reply-form-wrapper.open {
+      display: block;
+    }
+
+    .reply-form {
+      background: var(--color-sky-light);
+      border: 1.5px solid var(--color-blue-line);
+      border-radius: var(--radius-input);
+      padding: 16px 18px;
+    }
+
+    .reply-form .form-input,
+    .reply-form .form-textarea {
+      background: var(--color-white);
+      border: 1.5px solid var(--color-blue-line);
+      border-radius: var(--radius-input);
+      margin-bottom: 10px;
+    }
+
+    .reply-form .form-textarea {
+      min-height: 70px;
+      line-height: 1.6;
+    }
+
+    .btn-reply-send {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text);
+      background: var(--color-white);
+      border: 1.5px solid var(--color-blue-soft);
+      border-radius: 20px;
+      padding: 7px 20px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .btn-reply-send:hover {
+      background: var(--color-sky);
+    }
+
+    .btn-reply-send:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    /*=========================================
+          HILO DE RESPUESTAS
+    ==========================================*/
+    .replies-list {
+      margin-top: 18px;
+      padding-left: 18px;
+      border-left: 2.5px solid var(--color-blue-line);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .reply-item {
+      background: var(--color-sky-light);
+      border-radius: 12px;
+      padding: 12px 16px;
+      position: relative;
+      animation: cardAppear 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .reply-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+
+    .reply-emoji {
+      font-size: 1.1rem;
+    }
+
+    .reply-author {
+      font-family: var(--font-title);
+      font-size: 0.92rem;
+      color: var(--color-text);
+    }
+
+    .reply-time {
+      font-size: 0.72rem;
+      color: var(--color-grey-3);
+      font-style: italic;
+    }
+
+    .reply-body {
+      font-size: 0.88rem;
+      color: var(--color-text);
+      line-height: 1.65;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /*=========================================
+          LOADER
+    ==========================================*/
+    .loader-wrapper {
+      text-align: center;
+      padding: 48px 0;
+    }
+
+    .loader {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border: 3px solid var(--color-blue-line);
+      border-top-color: var(--color-blue-soft);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /*=========================================
+          TOAST / NOTIFICACIÓN
+    ==========================================*/
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: var(--color-text);
+      color: var(--color-white);
+      font-size: 0.88rem;
+      font-weight: 400;
+      border-radius: 30px;
+      padding: 11px 24px;
+      box-shadow: 0 8px 30px rgba(60,80,100,0.25);
+      z-index: 9999;
+      opacity: 0;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  opacity 0.35s ease;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0px);
+      opacity: 1;
+    }
+
+    /*=========================================
+          MODAL DE CONTRASEÑA (ADMIN)
+    ==========================================*/
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(61, 81, 102, 0.35);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      box-shadow: 0 16px 60px rgba(60,80,120,0.2);
+      padding: 36px 32px;
+      max-width: 380px;
+      width: 100%;
+      text-align: center;
+      animation: cardAppear 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .modal-title {
+      font-family: var(--font-title);
+      font-size: 1.35rem;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+
+    .modal-sub {
+      font-size: 0.84rem;
+      color: var(--color-text-soft);
+      margin-bottom: 22px;
+    }
+
+    .modal-input {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--color-text);
+      background: var(--color-sky-light);
+      border: 1.5px solid var(--color-blue-line);
+      border-radius: var(--radius-input);
+      padding: 11px 16px;
+      outline: none;
+      text-align: center;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .modal-input:focus {
+      border-color: var(--color-blue-soft);
+      box-shadow: 0 0 0 3px rgba(168,204,232,0.25);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .btn-modal {
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 500;
+      border-radius: 20px;
+      padding: 9px 22px;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: 1.5px solid transparent;
+    }
+
+    .btn-modal-confirm {
+      background: linear-gradient(135deg, #ddefff 0%, #c2dcf5 100%);
+      border-color: var(--color-blue-soft);
+      color: var(--color-text);
+    }
+
+    .btn-modal-confirm:hover {
+      background: var(--color-sky-mid);
+    }
+
+    .btn-modal-cancel {
+      background: transparent;
+      border-color: var(--color-grey-2);
+      color: var(--color-text-soft);
+    }
+
+    .btn-modal-cancel:hover {
+      background: var(--color-grey-1);
+    }
+
+    .modal-error {
+      font-size: 0.8rem;
+      color: var(--color-like);
+      margin-bottom: 10px;
+      min-height: 18px;
+    }
+
+    /*=========================================
+          ANIMACIÓN ENTRADA DE TARJETAS
+    ==========================================*/
+    @keyframes cardAppear {
+      from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+      }
+    }
+
+    /*=========================================
+          PIE DE PÁGINA
+    ==========================================*/
+    .footer {
+      text-align: center;
+      padding: 40px 20px 28px;
+      color: var(--color-grey-3);
+      font-size: 0.8rem;
+    }
+
+    .footer span {
+      font-family: var(--font-title);
+      color: var(--color-text-soft);
+    }
+
+    /*=========================================
+          RESPONSIVE
+    ==========================================*/
+    @media (max-width: 600px) {
+
+      .hero {
+        min-height: 240px;
+        padding: 48px 16px 32px;
+      }
+
+      .cloud-1 {
+        width: 110px;
+        height: 36px;
+      }
+
+      .cloud-2 {
+        width: 130px;
+        height: 42px;
+        right: -15px;
+      }
+
+      .cloud-3 {
+        display: none;
+      }
+
+      .notebook-form {
+        padding: 28px 18px 24px 44px;
+      }
+
+      .comment-card {
+        padding: 26px 18px 18px 44px;
+      }
+
+      .comment-card::before {
+        left: 28px;
+      }
+
+      .emoji-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.2rem;
+      }
+
+      .main-container {
+        padding: 0 12px 60px;
+      }
+
+      .modal-box {
+        padding: 28px 20px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .comment-actions {
+        gap: 8px;
+      }
+
+      .btn-like,
+      .btn-reply,
+      .btn-admin-action {
+        font-size: 0.76rem;
+        padding: 3px 9px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!--=========================================
+        ENCABEZADO / HERO
+  ==========================================-->
+  <header class="hero" role="banner">
+
+    <!-- Nubes decorativas animadas -->
+    <div class="cloud cloud-1" aria-hidden="true"></div>
+    <div class="cloud cloud-2" aria-hidden="true"></div>
+    <div class="cloud cloud-3" aria-hidden="true"></div>
+
+    <!-- Título principal -->
+    <h1 class="hero-title">☁ Entre Nubes</h1>
+
+    <!-- Subtítulo -->
+    <p class="hero-subtitle">Un lugar donde los pensamientos también dejan huella.</p>
+
+  </header>
+
+  <!--=========================================
+        CONTENEDOR PRINCIPAL
+  ==========================================-->
+  <main class="main-container" role="main">
+
+    <!--=========================================
+          BARRA DE ADMINISTRADOR (oculta por defecto)
+    ==========================================-->
+    <div class="admin-bar" id="adminBar" role="region" aria-label="Panel de administrador">
+      <span class="admin-badge">✦ Modo administrador</span>
+      <button class="btn-admin-login" id="btnAdminLogout" type="button">Cerrar sesión</button>
+    </div>
+
+    <!--=========================================
+          FORMULARIO – NUEVO PENSAMIENTO
+    ==========================================-->
+    <section class="notebook-form" aria-label="Escribe tu pensamiento">
+
+      <h2 class="form-title">✍ Deja tu pensamiento aquí…</h2>
+
+      <!-- Campo: Nombre -->
+      <div class="form-group">
+        <label class="form-label" for="inputNombre">Nombre (opcional)</label>
+        <input
+          class="form-input"
+          type="text"
+          id="inputNombre"
+          name="nombre"
+          placeholder="¿Cómo quieres que te llamen?"
+          maxlength="50"
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- Campo: Emoción -->
+      <div class="form-group">
+        <span class="form-label" id="labelEmoji">¿Cómo te sentiste?</span>
+        <div class="emoji-selector" role="group" aria-labelledby="labelEmoji" id="emojiSelector">
+          <!-- Los botones se generan desde JS para facilitar el mantenimiento -->
+        </div>
+      </div>
+
+      <!-- Campo: Texto -->
+      <div class="form-group">
+        <label class="form-label" for="inputTexto">Tu pensamiento</label>
+        <textarea
+          class="form-textarea"
+          id="inputTexto"
+          name="texto"
+          placeholder="Escribe lo que sentiste después de leer…"
+          maxlength="600"
+          rows="5"
+          aria-describedby="charCounter"
+        ></textarea>
+        <div class="char-counter" id="charCounter">0 / 600</div>
+      </div>
+
+      <!-- Botón publicar -->
+      <button class="btn-publish" id="btnPublish" type="button" aria-label="Publicar pensamiento">
+        ☁ Publicar pensamiento
+      </button>
+
+    </section>
+
+    <!--=========================================
+          SEPARADOR
+    ==========================================-->
+    <div class="section-divider" aria-hidden="true">
+      <p class="section-divider-title">☁ Pensamientos compartidos</p>
+    </div>
+
+    <!--=========================================
+          LISTA DE COMENTARIOS
+    ==========================================-->
+    <section id="commentsList" class="comments-list" aria-label="Pensamientos de lectores" aria-live="polite">
+      <!-- Loader inicial -->
+      <div class="loader-wrapper" id="loaderWrapper" aria-label="Cargando pensamientos…">
+        <div class="loader"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!--=========================================
+        PIE DE PÁGINA
+  ==========================================-->
+  <footer class="footer" role="contentinfo">
+    <p><span>Entre Nubes</span> — Hecho con 🤍 para quienes sienten.</p>
+    <p style="margin-top:6px;">
+      <button
+        class="btn-admin-login"
+        id="btnOpenAdmin"
+        type="button"
+        style="font-size:0.75rem; opacity:0.6;"
+        aria-label="Acceso administrador"
+      >⚙ Admin</button>
+    </p>
+  </footer>
+
+  <!--=========================================
+        MODAL CONTRASEÑA ADMINISTRADOR
+  ==========================================-->
+  <div class="modal-overlay" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <h3 class="modal-title" id="modalTitle">🔒 Acceso administrador</h3>
+      <p class="modal-sub">Ingresa la contraseña para activar el modo administrador.</p>
+      <input
+        class="modal-input"
+        type="password"
+        id="modalPasswordInput"
+        placeholder="••••••••"
+        aria-label="Contraseña de administrador"
+      />
+      <p class="modal-error" id="modalError" aria-live="polite"></p>
+      <div class="modal-actions">
+        <button class="btn-modal btn-modal-cancel" id="btnModalCancel" type="button">Cancelar</button>
+        <button class="btn-modal btn-modal-confirm" id="btnModalConfirm" type="button">Entrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!--=========================================
+        TOAST DE NOTIFICACIONES
+  ==========================================-->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!--=========================================
+        SCRIPT PRINCIPAL (módulo ES6)
+  ==========================================-->
+  <script type="module">
+
+    /*=========================================
+          FIREBASE – CONFIGURACIÓN
+          ↓ Pega aquí tu firebaseConfig ↓
+    ==========================================*/
+    import { initializeApp }            from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+    import {
+      getFirestore,
+      collection,
+      addDoc,
+      getDocs,
+      doc,
+      updateDoc,
+      deleteDoc,
+      onSnapshot,
+      query,
+      orderBy,
+      serverTimestamp,
+      getDoc
+    } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
+
+    /* ── PEGA TU firebaseConfig AQUÍ ── */
+    const firebaseConfig = {
+      apiKey:            "TU_API_KEY",
+      authDomain:        "TU_AUTH_DOMAIN",
+      projectId:         "TU_PROJECT_ID",
+      storageBucket:     "TU_STORAGE_BUCKET",
+      messagingSenderId: "TU_MESSAGING_SENDER_ID",
+      appId:             "TU_APP_ID"
+    };
+
+    /* Inicialización de Firebase */
+    const app = initializeApp(firebaseConfig);
+    const db  = getFirestore(app);
+
+    /*=========================================
+          CONSTANTES DE CONFIGURACIÓN
+    ==========================================*/
+
+    /* Contraseña de administrador – cámbiala */
+    const ADMIN_PASSWORD = "entreNubes2024";
+
+    /* Nombre de la colección en Firestore */
+    const COLLECTION_NAME = "comentarios";
+
+    /* Emojis disponibles para seleccionar */
+    const EMOJIS = ["😊", "🥹", "😌", "🤍", "☁️", "🌧️", "💙", "✨"];
+
+    /*=========================================
+          ESTADO GLOBAL DE LA APLICACIÓN
+    ==========================================*/
+    const state = {
+      isAdmin:           false,   // si el usuario es administrador
+      selectedEmoji:     EMOJIS[0], // emoji seleccionado por defecto
+      openReplyForms:    new Set(), // IDs de comentarios con formulario abierto
+      likedComments:     new Set(), // IDs de comentarios que el usuario ya likeó (localStorage)
+    };
+
+    /*=========================================
+          UTILIDADES – TIEMPO RELATIVO
+    ==========================================*/
+
+    /**
+     * Convierte un Timestamp de Firestore o un Date
+     * en una cadena de tiempo relativo en español.
+     * @param {import('firebase/firestore').Timestamp | Date | null} timestamp
+     * @returns {string}
+     */
+    function timeAgo(timestamp) {
+      if (!timestamp) return 'Hace un momento';
+
+      // Firestore Timestamp tiene .toDate()
+      const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+      const now  = new Date();
+      const diff = Math.floor((now - date) / 1000); // segundos
+
+      if (diff < 10)  return 'Hace unos segundos';
+      if (diff < 60)  return `Hace ${diff} segundos`;
+
+      const mins = Math.floor(diff / 60);
+      if (mins < 60)  return `Hace ${mins} minuto${mins !== 1 ? 's' : ''}`;
+
+      const hours = Math.floor(mins / 60);
+      if (hours < 24) return `Hace ${hours} hora${hours !== 1 ? 's' : ''}`;
+
+      const days = Math.floor(hours / 24);
+      if (days < 30)  return `Hace ${days} día${days !== 1 ? 's' : ''}`;
+
+      const months = Math.floor(days / 30);
+      if (months < 12) return `Hace ${months} mes${months !== 1 ? 'es' : ''}`;
+
+      const years = Math.floor(months / 12);
+      return `Hace ${years} año${years !== 1 ? 's' : ''}`;
+    }
+
+    /*=========================================
+          UTILIDADES – TOAST
+    ==========================================*/
+
+    /** Temporizador del toast para evitar solapamientos */
+    let toastTimer = null;
+
+    /**
+     * Muestra un mensaje de notificación en pantalla.
+     * @param {string} message  Mensaje a mostrar.
+     * @param {number} duration Duración en ms (default 2800).
+     */
+    function showToast(message, duration = 2800) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+
+      if (toastTimer) clearTimeout(toastTimer);
+
+      toast.classList.add('show');
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, duration);
+    }
+
+    /*=========================================
+          UTILIDADES – SANITIZACIÓN
+    ==========================================*/
+
+    /**
+     * Escapa HTML para evitar XSS al insertar texto en el DOM.
+     * @param {string} str
+     * @returns {string}
+     */
+    function escapeHTML(str) {
+      const div = document.createElement('div');
+      div.appendChild(document.createTextNode(str));
+      return div.innerHTML;
+    }
+
+    /*=========================================
+          LIKES – PERSISTENCIA LOCAL
+    ==========================================*/
+
+    /** Carga los IDs de comentarios likeados desde localStorage. */
+    function loadLikedFromStorage() {
+      try {
+        const raw = localStorage.getItem('entrenNubes_liked');
+        if (raw) {
+          JSON.parse(raw).forEach(id => state.likedComments.add(id));
+        }
+      } catch (_) { /* ignorar errores de localStorage */ }
+    }
+
+    /**
+     * Guarda el estado de likes en localStorage.
+     * @param {string} id ID del comentario likeado.
+     */
+    function saveLikedToStorage(id) {
+      state.likedComments.add(id);
+      try {
+        localStorage.setItem('entrenNubes_liked', JSON.stringify([...state.likedComments]));
+      } catch (_) { /* ignorar */ }
+    }
+
+    /*=========================================
+          EMOJIS – RENDERIZADO DEL SELECTOR
+    ==========================================*/
+
+    /** Inserta los botones de emoji en el selector del formulario principal. */
+    function renderEmojiSelector() {
+      const container = document.getElementById('emojiSelector');
+      container.innerHTML = '';
+
+      EMOJIS.forEach((emoji, index) => {
+        const btn = document.createElement('button');
+        btn.type        = 'button';
+        btn.className   = 'emoji-btn' + (index === 0 ? ' selected' : '');
+        btn.textContent = emoji;
+        btn.setAttribute('aria-label', `Emoción: ${emoji}`);
+        btn.setAttribute('aria-pressed', index === 0 ? 'true' : 'false');
+
+        btn.addEventListener('click', () => {
+          // Desmarcar todos
+          container.querySelectorAll('.emoji-btn').forEach(b => {
+            b.classList.remove('selected');
+            b.setAttribute('aria-pressed', 'false');
+          });
+          // Marcar el pulsado
+          btn.classList.add('selected');
+          btn.setAttribute('aria-pressed', 'true');
+          state.selectedEmoji = emoji;
+        });
+
+        container.appendChild(btn);
+      });
+    }
+
+    /*=========================================
+          FORMULARIO PRINCIPAL – EVENTOS
+    ==========================================*/
+
+    /** Configura el contador de caracteres del textarea principal. */
+    function setupCharCounter() {
+      const textarea = document.getElementById('inputTexto');
+      const counter  = document.getElementById('charCounter');
+
+      textarea.addEventListener('input', () => {
+        const len = textarea.value.length;
+        counter.textContent = `${len} / 600`;
+        if (len >= 540) {
+          counter.classList.add('warning');
+        } else {
+          counter.classList.remove('warning');
+        }
+      });
+    }
+
+    /**
+     * Publica un nuevo comentario en Firestore.
+     * Valida que el texto no esté vacío.
+     */
+    async function publishComment() {
+      const btn     = document.getElementById('btnPublish');
+      const nombre  = document.getElementById('inputNombre').value.trim();
+      const texto   = document.getElementById('inputTexto').value.trim();
+
+      if (!texto) {
+        showToast('✍ Escribe algo antes de publicar.');
+        document.getElementById('inputTexto').focus();
+        return;
+      }
+
+      if (texto.length > 600) {
+        showToast('El pensamiento es demasiado largo.');
+        return;
+      }
+
+      // Deshabilitar botón mientras guarda
+      btn.disabled    = true;
+      btn.textContent = '… Guardando';
+
+      try {
+        await addDoc(collection(db, COLLECTION_NAME), {
+          nombre:    nombre || 'Alguien anónimo',
+          emoji:     state.selectedEmoji,
+          texto:     texto,
+          likes:     0,
+          fijado:    false,
+          createdAt: serverTimestamp()
+        });
+
+        // Limpiar formulario
+        document.getElementById('inputNombre').value = '';
+        document.getElementById('inputTexto').value  = '';
+        document.getElementById('charCounter').textContent = '0 / 600';
+
+        // Restablecer emoji
+        const emojiContainer = document.getElementById('emojiSelector');
+        emojiContainer.querySelectorAll('.emoji-btn').forEach((b, i) => {
+          b.classList.toggle('selected', i === 0);
+          b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false');
+        });
+        state.selectedEmoji = EMOJIS[0];
+
+        showToast('☁ Pensamiento publicado. ¡Gracias!');
+
+      } catch (error) {
+        console.error('Error al publicar:', error);
+        showToast('Ocurrió un error. Intenta de nuevo.');
+      } finally {
+        btn.disabled    = false;
+        btn.textContent = '☁ Publicar pensamiento';
+      }
+    }
+
+    /*=========================================
+          FIRESTORE – ESCUCHA EN TIEMPO REAL
+    ==========================================*/
+
+    /**
+     * Inicia un listener en tiempo real sobre la colección de comentarios.
+     * Ordena por fecha ascendente; los fijados se colocan arriba en el render.
+     */
+    function listenComments() {
+      const q = query(
+        collection(db, COLLECTION_NAME),
+        orderBy('createdAt', 'desc')
+      );
+
+      onSnapshot(q, (snapshot) => {
+        const docs = [];
+        snapshot.forEach(docSnap => {
+          docs.push({ id: docSnap.id, ...docSnap.data() });
+        });
+
+        // Separar fijados y no fijados
+        const pinned    = docs.filter(d => d.fijado === true);
+        const notPinned = docs.filter(d => d.fijado !== true);
+
+        // Renderizar en orden: fijados primero
+        renderComments([...pinned, ...notPinned]);
+      }, (error) => {
+        console.error('Error al escuchar comentarios:', error);
+        document.getElementById('loaderWrapper')?.remove();
+        showToast('Error al cargar los pensamientos.');
+      });
+    }
+
+    /*=========================================
+          RENDER – LISTA COMPLETA DE COMENTARIOS
+    ==========================================*/
+
+    /**
+     * Renderiza todos los comentarios en el DOM.
+     * @param {Array} comments Array de objetos de comentario.
+     */
+    function renderComments(comments) {
+      const list = document.getElementById('commentsList');
+
+      // Eliminar loader si existe
+      document.getElementById('loaderWrapper')?.remove();
+
+      // Limpiar lista actual
+      list.innerHTML = '';
+
+      if (comments.length === 0) {
+        list.innerHTML = `
+          <div class="empty-state" role="status">
+            <span class="empty-state-icon">☁</span>
+            <p>Aún no hay pensamientos aquí.<br>Sé el primero en dejar el tuyo.</p>
+          </div>
+        `;
+        return;
+      }
+
+      // Crear tarjeta por cada comentario
+      comments.forEach(comment => {
+        const card = createCommentCard(comment);
+        list.appendChild(card);
+      });
+    }
+
+    /*=========================================
+          RENDER – TARJETA DE COMENTARIO
+    ==========================================*/
+
+    /**
+     * Crea y devuelve el elemento DOM de una tarjeta de comentario.
+     * @param {Object} comment Datos del comentario de Firestore.
+     * @returns {HTMLElement}
+     */
+    function createCommentCard(comment) {
+      const card = document.createElement('article');
+      card.className = 'comment-card' + (comment.fijado ? ' pinned' : '');
+      card.setAttribute('data-id', comment.id);
+      card.setAttribute('aria-label', `Pensamiento de ${comment.nombre}`);
+
+      const isLiked = state.likedComments.has(comment.id);
+
+      card.innerHTML = `
+
+        <!-- Clip decorativo SVG -->
+        <div class="comment-clip" aria-hidden="true">
+          <svg viewBox="0 0 28 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="8" y="0" width="12" height="28" rx="6"
+              fill="none" stroke="${comment.fijado ? '#a8cce8' : '#b0c8e0'}"
+              stroke-width="3.5"/>
+            <rect x="11" y="4" width="6" height="22" rx="3"
+              fill="none" stroke="${comment.fijado ? '#c2dcf5' : '#d0e4f4'}"
+              stroke-width="2"/>
+          </svg>
+        </div>
+
+        <!-- Badge fijado -->
+        ${comment.fijado
+          ? `<div class="pinned-badge" aria-label="Comentario fijado">📌 Fijado</div>`
+          : ''
+        }
+
+        <!-- Cabecera -->
+        <header class="comment-header">
+          <div class="comment-meta">
+            <span class="comment-emoji" aria-hidden="true">${escapeHTML(comment.emoji || '🤍')}</span>
+            <span class="comment-author">${escapeHTML(comment.nombre || 'Alguien anónimo')}</span>
+            <time class="comment-time" aria-label="Publicado: ${timeAgo(comment.createdAt)}">
+              ${timeAgo(comment.createdAt)}
+            </time>
+          </div>
+        </header>
+
+        <!-- Texto -->
+        <p class="comment-body">${escapeHTML(comment.texto)}</p>
+
+        <!-- Acciones -->
+        <div class="comment-actions" role="group" aria-label="Acciones del pensamiento">
+
+          <!-- Like -->
+          <button
+            class="btn-like${isLiked ? ' liked' : ''}"
+            data-action="like"
+            data-id="${comment.id}"
+            aria-label="Me gusta, ${comment.likes || 0} votos"
+            aria-pressed="${isLiked}"
+            type="button"
+          >
+            ❤️ ${comment.likes || 0}
+          </button>
+
+          <!-- Responder -->
+          <button
+            class="btn-reply"
+            data-action="reply"
+            data-id="${comment.id}"
+            aria-expanded="false"
+            aria-controls="replyForm-${comment.id}"
+            type="button"
+          >
+            💬 Responder
+          </button>
+
+          <!-- Botones de administrador (visibles solo si isAdmin) -->
+          ${state.isAdmin
+            ? `
+              <button
+                class="btn-admin-action"
+                data-action="pin"
+                data-id="${comment.id}"
+                data-pinned="${comment.fijado}"
+                type="button"
+                aria-label="${comment.fijado ? 'Desfijar' : 'Fijar'} comentario"
+              >
+                ${comment.fijado ? '📌 Desfijar' : '📌 Fijar'}
+              </button>
+              <button
+                class="btn-admin-action delete"
+                data-action="delete"
+                data-id="${comment.id}"
+                type="button"
+                aria-label="Eliminar comentario"
+              >
+                🗑 Eliminar
+              </button>
+            `
+            : ''
+          }
+
+        </div>
+
+        <!-- Formulario de respuesta (oculto por defecto) -->
+        <div
+          class="reply-form-wrapper${state.openReplyForms.has(comment.id) ? ' open' : ''}"
+          id="replyForm-${comment.id}"
+        >
+          <div class="reply-form">
+            <input
+              class="form-input"
+              type="text"
+              placeholder="Tu nombre (opcional)"
+              maxlength="50"
+              data-reply-name="${comment.id}"
+              autocomplete="off"
+              aria-label="Tu nombre para la respuesta"
+            />
+            <textarea
+              class="form-textarea"
+              placeholder="Escribe tu respuesta…"
+              maxlength="400"
+              rows="3"
+              data-reply-text="${comment.id}"
+              aria-label="Texto de la respuesta"
+            ></textarea>
+            <button
+              class="btn-reply-send"
+              data-action="send-reply"
+              data-id="${comment.id}"
+              type="button"
+              aria-label="Enviar respuesta"
+            >
+              ✈ Enviar respuesta
+            </button>
+          </div>
+        </div>
+
+        <!-- Lista de respuestas -->
+        <div class="replies-list" id="repliesList-${comment.id}" aria-label="Respuestas al pensamiento">
+          <!-- Las respuestas se cargan de forma asíncrona -->
+        </div>
+      `;
+
+      // Cargar respuestas de este comentario
+      loadReplies(comment.id, card.querySelector(`#repliesList-${comment.id}`));
+
+      return card;
+    }
+
+    /*=========================================
+          FIRESTORE – RESPUESTAS
+    ==========================================*/
+
+    /**
+     * Escucha en tiempo real las respuestas de un comentario específico.
+     * Las respuestas se almacenan en una subcolección.
+     * @param {string} commentId  ID del comentario padre.
+     * @param {HTMLElement} container Elemento donde se renderizan las respuestas.
+     */
+    function loadReplies(commentId, container) {
+      const repliesRef = collection(db, COLLECTION_NAME, commentId, 'respuestas');
+      const q = query(repliesRef, orderBy('createdAt', 'asc'));
+
+      onSnapshot(q, (snapshot) => {
+        container.innerHTML = '';
+        snapshot.forEach(docSnap => {
+          const reply = { id: docSnap.id, ...docSnap.data() };
+          container.appendChild(createReplyItem(reply));
+        });
+      }, (error) => {
+        console.error('Error al cargar respuestas:', error);
+      });
+    }
+
+    /**
+     * Crea y devuelve el elemento DOM de un ítem de respuesta.
+     * @param {Object} reply Datos de la respuesta.
+     * @returns {HTMLElement}
+     */
+    function createReplyItem(reply) {
+      const item = document.createElement('div');
+      item.className = 'reply-item';
+      item.setAttribute('aria-label', `Respuesta de ${reply.nombre}`);
+
+      item.innerHTML = `
+        <div class="reply-meta">
+          <span class="reply-emoji" aria-hidden="true">${escapeHTML(reply.emoji || '💙')}</span>
+          <span class="reply-author">${escapeHTML(reply.nombre || 'Alguien anónimo')}</span>
+          <time class="reply-time">${timeAgo(reply.createdAt)}</time>
+        </div>
+        <p class="reply-body">${escapeHTML(reply.texto)}</p>
+      `;
+
+      return item;
+    }
+
+    /**
+     * Guarda una respuesta en la subcolección de Firestore.
+     * @param {string} commentId ID del comentario padre.
+     */
+    async function sendReply(commentId) {
+      const card      = document.querySelector(`[data-id="${commentId}"]`);
+      const nameInput = card.querySelector(`[data-reply-name="${commentId}"]`);
+      const textArea  = card.querySelector(`[data-reply-text="${commentId}"]`);
+      const btn       = card.querySelector(`[data-action="send-reply"][data-id="${commentId}"]`);
+
+      const nombre = nameInput.value.trim();
+      const texto  = textArea.value.trim();
+
+      if (!texto) {
+        showToast('✍ Escribe algo en tu respuesta.');
+        textArea.focus();
+        return;
+      }
+
+      btn.disabled    = true;
+      btn.textContent = '… Enviando';
+
+      try {
+        const repliesRef = collection(db, COLLECTION_NAME, commentId, 'respuestas');
+        await addDoc(repliesRef, {
+          nombre:    nombre || 'Alguien anónimo',
+          emoji:     '💙',
+          texto:     texto,
+          createdAt: serverTimestamp()
+        });
+
+        // Limpiar campos de respuesta
+        nameInput.value = '';
+        textArea.value  = '';
+
+        // Cerrar el formulario
+        toggleReplyForm(commentId, true);
+
+        showToast('✈ Respuesta enviada. ¡Gracias!');
+
+      } catch (error) {
+        console.error('Error al enviar respuesta:', error);
+        showToast('Ocurrió un error. Intenta de nuevo.');
+      } finally {
+        btn.disabled    = false;
+        btn.textContent = '✈ Enviar respuesta';
+      }
+    }
+
+    /*=========================================
+          INTERACCIONES – LIKES
+    ==========================================*/
+
+    /**
+     * Incrementa el contador de likes de un comentario en Firestore.
+     * Impide que el mismo usuario like dos veces (usando localStorage).
+     * @param {string} commentId ID del comentario.
+     */
+    async function likeComment(commentId) {
+      if (state.likedComments.has(commentId)) {
+        showToast('Ya diste like a este pensamiento 🤍');
+        return;
+      }
+
+      try {
+        const docRef    = doc(db, COLLECTION_NAME, commentId);
+        const docSnap   = await getDoc(docRef);
+
+        if (!docSnap.exists()) return;
+
+        const currentLikes = docSnap.data().likes || 0;
+
+        await updateDoc(docRef, { likes: currentLikes + 1 });
+
+        // Registrar like localmente
+        saveLikedToStorage(commentId);
+
+        showToast('❤️ ¡Gracias por el amor!');
+
+      } catch (error) {
+        console.error('Error al dar like:', error);
+        showToast('Error al procesar el like.');
+      }
+    }
+
+    /*=========================================
+          INTERACCIONES – FORMULARIO RESPUESTA
+    ==========================================*/
+
+    /**
+     * Abre o cierra el formulario de respuesta de un comentario.
+     * @param {string}  commentId ID del comentario.
+     * @param {boolean} forceClose Si es true, siempre cierra.
+     */
+    function toggleReplyForm(commentId, forceClose = false) {
+      const wrapper = document.getElementById(`replyForm-${commentId}`);
+      const btn     = document.querySelector(`[data-action="reply"][data-id="${commentId}"]`);
+
+      if (!wrapper) return;
+
+      const isOpen = state.openReplyForms.has(commentId);
+
+      if (forceClose || isOpen) {
+        // Cerrar
+        wrapper.classList.remove('open');
+        state.openReplyForms.delete(commentId);
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      } else {
+        // Abrir
+        wrapper.classList.add('open');
+        state.openReplyForms.add(commentId);
+        if (btn) btn.setAttribute('aria-expanded', 'true');
+        // Enfocar el campo de nombre
+        wrapper.querySelector('[data-reply-name]')?.focus();
+      }
+    }
+
+    /*=========================================
+          ACCIONES DE ADMINISTRADOR
+    ==========================================*/
+
+    /**
+     * Alterna el campo "fijado" de un comentario en Firestore.
+     * Solo accesible si el usuario es administrador.
+     * @param {string}  commentId ID del comentario.
+     * @param {boolean} currentPinned Estado actual de fijado.
+     */
+    async function togglePin(commentId, currentPinned) {
+      if (!state.isAdmin) return;
+      try {
+        const docRef = doc(db, COLLECTION_NAME, commentId);
+        await updateDoc(docRef, { fijado: !currentPinned });
+        showToast(currentPinned ? '📌 Pensamiento desfijado.' : '📌 Pensamiento fijado.');
+      } catch (error) {
+        console.error('Error al fijar/desfijar:', error);
+        showToast('Error al actualizar el comentario.');
+      }
+    }
+
+    /**
+     * Elimina un comentario de Firestore (con confirmación).
+     * Solo accesible si el usuario es administrador.
+     * @param {string} commentId ID del comentario.
+     */
+    async function deleteComment(commentId) {
+      if (!state.isAdmin) return;
+
+      // Confirmación simple para evitar eliminaciones accidentales
+      const confirmed = window.confirm('¿Seguro que quieres eliminar este pensamiento? Esta acción no se puede deshacer.');
+      if (!confirmed) return;
+
+      try {
+        await deleteDoc(doc(db, COLLECTION_NAME, commentId));
+        showToast('🗑 Pensamiento eliminado.');
+      } catch (error) {
+        console.error('Error al eliminar:', error);
+        showToast('Error al eliminar el comentario.');
+      }
+    }
+
+    /*=========================================
+          ADMINISTRADOR – MODAL Y SESIÓN
+    ==========================================*/
+
+    /** Muestra el modal para ingresar la contraseña de administrador. */
+    function openAdminModal() {
+      const modal = document.getElementById('adminModal');
+      modal.classList.add('open');
+      document.getElementById('modalPasswordInput').value = '';
+      document.getElementById('modalError').textContent   = '';
+      document.getElementById('modalPasswordInput').focus();
+    }
+
+    /** Cierra el modal de contraseña. */
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.remove('open');
+    }
+
+    /** Verifica la contraseña ingresada y activa el modo administrador. */
+    function confirmAdminPassword() {
+      const input = document.getElementById('modalPasswordInput');
+      const error = document.getElementById('modalError');
+
+      if (input.value === ADMIN_PASSWORD) {
+        state.isAdmin = true;
+        closeAdminModal();
+        document.getElementById('adminBar').classList.add('visible');
+        showToast('✦ Modo administrador activado.');
+        // Re-escuchar para que las tarjetas muestren botones admin
+        listenComments();
+      } else {
+        error.textContent = 'Contraseña incorrecta. Inténtalo de nuevo.';
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    /** Cierra la sesión de administrador. */
+    function logoutAdmin() {
+      state.isAdmin = false;
+      document.getElementById('adminBar').classList.remove('visible');
+      showToast('Sesión de administrador cerrada.');
+      listenComments();
+    }
+
+    /*=========================================
+          DELEGACIÓN DE EVENTOS – LISTA
+    ==========================================*/
+
+    /**
+     * Maneja todos los eventos de clic dentro de la lista de comentarios
+     * usando delegación de eventos para mayor eficiencia.
+     * @param {MouseEvent} e
+     */
+    function handleCommentListClick(e) {
+      const target = e.target.closest('[data-action]');
+      if (!target) return;
+
+      const action    = target.dataset.action;
+      const commentId = target.dataset.id;
+
+      switch (action) {
+
+        case 'like':
+          likeComment(commentId);
+          break;
+
+        case 'reply':
+          toggleReplyForm(commentId);
+          break;
+
+        case 'send-reply':
+          sendReply(commentId);
+          break;
+
+        case 'pin':
+          togglePin(commentId, target.dataset.pinned === 'true');
+          break;
+
+        case 'delete':
+          deleteComment(commentId);
+          break;
+      }
+    }
+
+    /*=========================================
+          INICIALIZACIÓN
+    ==========================================*/
+
+    /** Función principal de inicialización. */
+    function init() {
+
+      // Cargar likes guardados
+      loadLikedFromStorage();
+
+      // Renderizar selector de emojis
+      renderEmojiSelector();
+
+      // Configurar contador de caracteres
+      setupCharCounter();
+
+      // Botón publicar
+      document.getElementById('btnPublish').addEventListener('click', publishComment);
+
+      // Delegación de eventos en la lista
+      document.getElementById('commentsList').addEventListener('click', handleCommentListClick);
+
+      // Admin – botón del footer
+      document.getElementById('btnOpenAdmin').addEventListener('click', openAdminModal);
+
+      // Admin – logout
+      document.getElementById('btnAdminLogout').addEventListener('click', logoutAdmin);
+
+      // Admin – modal cancelar
+      document.getElementById('btnModalCancel').addEventListener('click', closeAdminModal);
+
+      // Admin – modal confirmar
+      document.getElementById('btnModalConfirm').addEventListener('click', confirmAdminPassword);
+
+      // Admin – Enter en el modal
+      document.getElementById('modalPasswordInput').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') confirmAdminPassword();
+      });
+
+      // Cerrar modal al hacer clic fuera del cuadro
+      document.getElementById('adminModal').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('adminModal')) closeAdminModal();
+      });
+
+      // Publicar con Ctrl + Enter en el textarea
+      document.getElementById('inputTexto').addEventListener('keydown', (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+          publishComment();
+        }
+      });
+
+      // Iniciar escucha de Firestore
+      listenComments();
+    }
+
+    /* Arrancar cuando el DOM esté listo */
+    document.addEventListener('DOMContentLoaded', init);
+
+  </script>
+
+</body>
+</html>
